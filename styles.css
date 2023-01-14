@@ -1,0 +1,11 @@
+body {
+    background-color: darkgrey;
+}
+
+.redAlert {
+    background-color: lightcoral;
+}
+
+.lightGreen {
+    background-color: lightgreen;
+}
