@@ -2,10 +2,13 @@ body {
     background-color: darkgrey;
 }
 
-.redAlert {
-    background-color: lightcoral;
+#animalType {
+    display: flex;
+    justify-content: space-around;
 }
 
-.lightGreen {
-    background-color: lightgreen;
+#animalType div {
+    height: 50px;
+    width: 50px;
+    background-color: brown;
 }
