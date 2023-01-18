@@ -6,6 +6,21 @@ let animalLocation = "";
 const locationNY = document.querySelector("#NY");
 const locationLA = document.querySelector("#LA");
 const locationTX = document.querySelector("#TX");
+const loader = document.querySelector("#loading");
+
+//--- Loading animation ---//
+function displayLoading() {
+	loader.classList.add("display");
+	setTimeout(() => {
+		loader.classList.remove("display");
+	}, 2000);
+}
+
+function hideLoading() {
+	loader.classList.remove("display");
+}
+
+//--- ---//
 
 goBack.addEventListener("click", () => {
 	location.href = "./index.html";
@@ -36,6 +51,8 @@ function onClickHandlerTX() {
 locationTX.addEventListener("click", onClickHandlerTX);
 
 function getAnimals(animalType) {
+	//--- Loading animation ---//
+	displayLoading();
 	fetch("https://api.petfinder.com/v2/oauth2/token", {
 		method: "POST",
 		body:
@@ -79,6 +96,8 @@ function getAnimals(animalType) {
 				listElement.innerHTML = data.animals[i].name;
 				animalList.appendChild(listElement);
 			}
+			//--- Loading animation end ---//
+			hideLoading();
 		})
 		.catch(function (err) {
 			// Log any errors

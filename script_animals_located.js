@@ -7,6 +7,22 @@ const header1 = document.querySelector("#header1");
 const header2 = document.querySelector("#header2");
 const goHome = document.querySelector("#goHome");
 
+const loader = document.querySelector("#loading");
+
+//--- Loading animation ---//
+function displayLoading() {
+	loader.classList.add("display");
+	setTimeout(() => {
+		loader.classList.remove("display");
+	}, 2000);
+}
+
+function hideLoading() {
+	loader.classList.remove("display");
+}
+
+//--- ---//
+
 header1.innerHTML = `You're looking for: ${animalTypeOf}s`;
 header2.innerHTML = `located in: ${animalLocation}`;
 
@@ -19,6 +35,8 @@ goBack.addEventListener("click", () => {
 });
 
 function getAnimals(animalType, location) {
+	//--- Loading animation ---//
+	displayLoading();
 	fetch("https://api.petfinder.com/v2/oauth2/token", {
 		method: "POST",
 		body:
@@ -68,6 +86,8 @@ function getAnimals(animalType, location) {
 				listElement.innerHTML = data.animals[i].name;
 				animalList.appendChild(listElement);
 			}
+			//--- Loading animation end ---//
+			hideLoading();
 		})
 		.catch(function (err) {
 			// Log any errors
