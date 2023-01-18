@@ -10,14 +10,14 @@ const loader = document.querySelector("#loading");
 
 //--- Loading animation ---//
 function displayLoading() {
-	loader.classList.add("display");
+	loader.classList.add("heart");
 	setTimeout(() => {
-		loader.classList.remove("display");
-	}, 2000);
+		loader.classList.remove("heart");
+	}, 5000);
 }
 
 function hideLoading() {
-	loader.classList.remove("display");
+	loader.classList.remove("heart");
 }
 
 //--- ---//
