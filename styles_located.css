@@ -25,6 +25,7 @@ body {
     background-color: lightgreen;
 }
 
+/* --- loading animation --- */
 
   .heart {
     position: absolute;
@@ -69,4 +70,11 @@ body {
     50% {
       transform: scale(0.6) rotate(-45deg);
     }
+  }
+
+  /* --- END of loading animation --- */
+
+  .flexColumn {
+    display: flex;
+    flex-direction: column;
   }

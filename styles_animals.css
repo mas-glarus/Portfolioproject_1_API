@@ -18,6 +18,9 @@ body {
     height: 50px;
     background-color: aquamarine;
 }
+
+/* --- loading animation --- */
+
 .heart {
     position: absolute;
     margin: auto;
@@ -62,3 +65,15 @@ body {
       transform: scale(0.6) rotate(-45deg);
     }
   }
+
+  /* --- END of loading animation --- */
+
+#animalList {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}

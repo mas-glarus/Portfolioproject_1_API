@@ -81,11 +81,30 @@ function getAnimals(animalType, location) {
 			//remove old list items
 			animalList.innerHTML = "";
 			//for loop over animals array:
+			//first if -> error message if no pets could be found
+			if(data.animals.length === 0) {
+				header2.innerHTML = `could not found any ${animalType}s in ${location}`
+			} else {
+				header2.innerHTML = `could find the following ${animalType}s in ${location}`
 			for (let i = 0; i < data.animals.length; i++) {
-				let listElement = document.createElement("li");
+				if(data.animals[i].photos.length > 0) {
+				let imageUrl = data.animals[i].photos[0].full;
+				let listElement = document.createElement("div");
+				let image = document.createElement('img');
+				let contact = document.createElement('p');
+				contact.innerHTML = data.animals[i].contact.email;
+				image.src = imageUrl;
+				image.style.width = "10rem";
 				listElement.innerHTML = data.animals[i].name;
 				animalList.appendChild(listElement);
+				listElement.classList.add('flexColumn')
+				listElement.appendChild(image);
+				listElement.appendChild(contact);
+			} else {
+				console.log('no foto found')
 			}
+		}
+	}
 			//--- Loading animation end ---//
 			hideLoading();
 		})

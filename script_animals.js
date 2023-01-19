@@ -3,10 +3,11 @@ const apiSecret = "16ouruHP8NBNMiL4R4ituHEW4GdlgwebiGTFmBah";
 const goBack = document.querySelector("#goBack");
 const animalTypeOf = sessionStorage.getItem("animal");
 let animalLocation = "";
-const locationNY = document.querySelector("#NY");
+const locationFL = document.querySelector("#FL");
 const locationLA = document.querySelector("#LA");
 const locationTX = document.querySelector("#TX");
 const loader = document.querySelector("#loading");
+
 
 //--- Loading animation ---//
 function displayLoading() {
@@ -26,13 +27,13 @@ goBack.addEventListener("click", () => {
 	location.href = "./index.html";
 });
 
-function onClickHandlerNY() {
-	animalLocation = "NY";
+function onClickHandlerFL() {
+	animalLocation = "FL";
 	location.href = "./index_animals_located.html";
 	sessionStorage.setItem("location", animalLocation);
 }
 
-locationNY.addEventListener("click", onClickHandlerNY);
+locationFL.addEventListener("click", onClickHandlerFL);
 
 function onClickHandlerLA() {
 	animalLocation = "LA";
@@ -91,11 +92,29 @@ function getAnimals(animalType) {
 			//remove old list items
 			animalList.innerHTML = "";
 			//for loop over animals array:
+			if(data.animals.length === 0) {
+				header2.innerHTML = `could not found any ${animalType}s in ${location}`
+			} else {
+				header2.innerHTML = `could find the following ${animalType}s`
 			for (let i = 0; i < data.animals.length; i++) {
-				let listElement = document.createElement("li");
+				if(data.animals[i].photos.length > 0) {
+				let imageUrl = data.animals[i].photos[0].full;
+				let listElement = document.createElement("div");
+				let image = document.createElement('img');
+				let contact = document.createElement('p');
+				contact.innerHTML = data.animals[i].contact.email;
+				image.src = imageUrl;
+				image.style.width = "10rem";
 				listElement.innerHTML = data.animals[i].name;
 				animalList.appendChild(listElement);
+				listElement.classList.add('flexColumn')
+				listElement.appendChild(image);
+				listElement.appendChild(contact);
+			} else {
+				console.log('no foto found')
 			}
+		}
+	}
 			//--- Loading animation end ---//
 			hideLoading();
 		})
