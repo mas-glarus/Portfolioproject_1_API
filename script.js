@@ -6,7 +6,7 @@ const bird = document.querySelector("#animalType__bird");
 let animalType = "";
 
 function onClickHandlerDog() {
-	animalType = "Dog";
+	animalType = "dog";
 	location.href = "./index_animals.html";
 	sessionStorage.setItem("animal", animalType);
 }
@@ -14,7 +14,7 @@ function onClickHandlerDog() {
 dog.addEventListener("click", onClickHandlerDog);
 
 function onClickHandlerCat() {
-	animalType = "Cat";
+	animalType = "cat";
 	location.href = "./index_animals.html";
 	sessionStorage.setItem("animal", animalType);
 }
@@ -22,7 +22,7 @@ function onClickHandlerCat() {
 cat.addEventListener("click", onClickHandlerCat);
 
 function onClickHandlerBird() {
-	animalType = "Bird";
+	animalType = "bird";
 	location.href = "./index_animals.html";
 	sessionStorage.setItem("animal", animalType);
 }

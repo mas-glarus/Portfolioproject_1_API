@@ -1,22 +1,88 @@
+:root {
+  --main-bg: #ddeefc;
+  --icons-bg: white;
+  --shadow-bg: rgba(90, 116, 148, 0.6);
+  --effect-bg: pink;
+  --color-txt: #1a3b5d;
+  --border-radius: 0.8rem;
+}
+
+html, body {
+  background-color: var(--main-bg);
+  margin: 0;
+  font-size: 14px;
+  font-family: 'Raleway', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+}
+
 body {
-    background-color: darkgrey;
+  height: 100vh;
+}
+
+.container {
+  width: 75%;
+  margin: 5rem auto;
+  padding-bottom: 10rem;
+
 }
 
 #goBack {
-    width: 80px;
-    height: 50px;
-    background-color: lightcoral;
+    margin-top: 5rem;
+    width: 7rem;
+    height: 3.5rem;
+    background-color: var(--color-txt);
+    color: var(--main-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2rem 4rem 0 var(--shadow-bg);
+}
+
+#goBack:hover {
+  cursor: pointer;
+}
+
+h1 {
+  color: var(--color-txt);
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 4rem;
+}
+
+h4 {
+    color: var(--color-txt);
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 #locations {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 6rem;
 }
 
 #locations div {
-    width: 100px;
-    height: 50px;
-    background-color: aquamarine;
+  height: 4.5rem;
+  width: 9rem;
+  padding: 2rem;
+  background-color: var(--icons-bg);
+  box-shadow: 0 2rem 4rem 0 var(--shadow-bg);
+  border-radius: var(--border-radius);
+  font-size: 1.5rem;
+  color: var(--color-txt);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#locations div:hover,
+#locations div:focus {
+box-shadow: 0 0 0 1.5rem var(--effect-bg);
+cursor: pointer;
 }
 
 /* --- loading animation --- */
@@ -28,7 +94,7 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: pink;
+    background-color: var(--effect-bg);
     height: 50px;
     width: 50px;
     transform: rotate(-45deg);
@@ -37,7 +103,7 @@ body {
     animation-iteration-count: infinite;
   }
   .heart:after {
-    background-color: pink;
+    background-color: var(--effect-bg);
     content: "";
     border-radius: 50%;
     position: absolute;
@@ -47,7 +113,7 @@ body {
     left: 25px;
   }
   .heart:before {
-    background-color: pink;
+    background-color: var(--effect-bg);
     content: "";
     border-radius: 50%;
     position: absolute;
@@ -67,13 +133,43 @@ body {
   }
 
   /* --- END of loading animation --- */
+  
+  /* --- GRID START --- */
+.animalList-Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 #animalList {
+  display: grid;
+  grid-template-columns: repeat(4, 20rem);
+  grid-gap: 3rem;
+}
+
+#animalList div {
+  color: var(--color-txt);
+  background-color: var(--icons-bg);
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 2rem 4rem 0 var(--shadow-bg);
+}
+
+#animalList div:hover {
+  box-shadow: 0 2rem 4rem 0 var(--effect-bg);
+}
+
+#animalList div img {
+  width: 10rem;
+  border-radius: var(--border-radius);
 }
 
 .flexColumn {
   display: flex;
   flex-direction: column;
 }
+
+    /* --- GRID END ---*/

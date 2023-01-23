@@ -1,5 +1,38 @@
+:root {
+    --main-bg: #ddeefc;
+    --icons-bg: white;
+    --shadow-bg: rgba(90, 116, 148, 0.6);
+    --effect-bg: pink;
+    --color-txt: #1a3b5d;
+    --border-radius: 0.8rem;
+}
+
+html, body {
+    background-color: var(--main-bg);
+    margin: 0;
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: darkgrey;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 75%;
+    margin: 0 auto;
+}
+
+h1 {
+    color: var(--color-txt);
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 4rem;
 }
 
 #animalType {
@@ -8,7 +41,17 @@ body {
 }
 
 #animalType div {
-    height: 50px;
-    width: 50px;
-    background-color: brown;
+    height: 9rem;
+    width: 9rem;
+    padding: 2rem;
+    background-color: var(--icons-bg);
+    box-shadow: 0 2rem 4rem 0 var(--shadow-bg);
+    border-radius: var(--border-radius);
 }
+
+#animalType div:hover,
+#animalType div:focus {
+    box-shadow: 0 0 0 1.5rem var(--effect-bg);
+    cursor: pointer;
+}
+
