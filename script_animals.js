@@ -86,8 +86,10 @@ function getAnimals(animalType) {
 			//for loop over animals array:
 			if (data.animals.length === 0) {
 				header2.innerHTML = `could not found any ${animalType}s`;
+				document.title= `can't find any ${animalType}s`;
 			} else {
 				header2.innerHTML = `could find the following ${animalType}s`;
+				document.title= `beautiful ${animalType}s`;
 				for (let i = 0; i < data.animals.length; i++) {
 					if (data.animals[i].photos.length > 0) {
 						//--- animal image ---//

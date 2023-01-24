@@ -85,8 +85,10 @@ function getAnimals(animalType, location) {
 			//first if -> error message if no pets could be found
 			if (data.animals.length === 0) {
 				header2.innerHTML = `could not found any ${animalType}s in ${location}`;
+				document.title = `can't find any ${animalType}s`;
 			} else {
 				header2.innerHTML = `could find the following ${animalType}s in ${location}`;
+				document.title = `beautiful ${animalType}s in ${location}`;
 				for (let i = 0; i < data.animals.length; i++) {
 					if (data.animals[i].photos.length > 0) {
 						//--- animal image ---//
