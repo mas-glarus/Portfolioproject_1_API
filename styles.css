@@ -45,15 +45,15 @@ h1 {
     width: 9rem;
     padding: 2rem;
     background-color: var(--icons-bg);
-    box-shadow: 0 2rem 4rem 0 var(--shadow-bg);
     border-radius: var(--border-radius);
+    box-shadow: 0 2rem 4rem 0 var(--shadow-bg);
     transition: all ease 0.2s;
 }
 
 #animalType div:hover,
 #animalType div:focus {
-    box-shadow: 0 0 0 1.5rem var(--effect-bg);
     cursor: pointer;
+    box-shadow: 0 0 0 1rem var(--effect-bg);
     transform: translateY(-.5rem);
 }
 

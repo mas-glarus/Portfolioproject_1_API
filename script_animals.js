@@ -3,11 +3,9 @@ const apiSecret = "16ouruHP8NBNMiL4R4ituHEW4GdlgwebiGTFmBah";
 const goBack = document.querySelector("#goBack");
 const animalTypeOf = sessionStorage.getItem("animal");
 let animalLocation = "";
-const locationFL = document.querySelector("#FL");
-const locationLA = document.querySelector("#LA");
-const locationTX = document.querySelector("#TX");
 const loader = document.querySelector("#loading");
 const select = document.querySelector("#locations");
+const animalList = document.querySelector("#animalList")
 
 //--- Loading animation ---//
 function displayLoading() {
@@ -92,18 +90,44 @@ function getAnimals(animalType) {
 				header2.innerHTML = `could find the following ${animalType}s`;
 				for (let i = 0; i < data.animals.length; i++) {
 					if (data.animals[i].photos.length > 0) {
-						let imageUrl = data.animals[i].photos[0].full;
-						let listElement = document.createElement("div");
+						//--- animal image ---//
 						let image = document.createElement("img");
-						let contact = document.createElement("p");
-						contact.innerHTML = data.animals[i].contact.email;
+						let imageUrl = data.animals[i].photos[0].full;
 						image.src = imageUrl;
-						image.style.width = "10rem";
-						listElement.innerHTML = data.animals[i].name;
-						listElement.classList.add("flexColumn");
+						image.style.width = '10rem';
+						image.style.borderRadius = '0.8rem';
+						//--- END animal image ---//
+						//--- Card construction --- //
+						let listElement = document.createElement("div");
+						let topDiv = document.createElement("div");
+						let bottomDiv = document.createElement("div");
+						let bottomDivLeft = document.createElement("div");
+						let bottomDivRight = document.createElement("div");
 						animalList.appendChild(listElement);
-						listElement.appendChild(image);
-						listElement.appendChild(contact);
+						animalList.classList.add('grid')
+						listElement.classList.add('listElementDiv')
+						listElement.appendChild(topDiv);
+						listElement.appendChild(bottomDiv);
+						topDiv.appendChild(image);
+						topDiv.classList.add('topDivStyle');
+						bottomDiv.appendChild(bottomDivLeft);
+						bottomDiv.appendChild(bottomDivRight);
+						bottomDiv.classList.add('bottomDivStyle')
+						//--- End card construction --- //
+						//--- Animal name --- //
+						bottomDivLeft.innerHTML = `"${data.animals[i].name}"`;
+						bottomDivLeft.classList.add('bottomDivLeftStyle')
+						//--- END Animal name --- //
+						//---Contact via Email ---//
+						let imageContact = document.createElement('img');
+						imageContact.src = './images/mail.svg';
+						imageContact.style.width = '3rem';
+						let contact = document.createElement("a");
+						contact.href = `mailto:${data.animals[i].contact.email}`;
+						contact.appendChild(imageContact)
+						bottomDivRight.appendChild(contact);
+						bottomDivRight.classList.add('bottomDivRightStyle')
+						//---END Contact via Email ---//
 					} else {
 						console.log("no foto found");
 					}
