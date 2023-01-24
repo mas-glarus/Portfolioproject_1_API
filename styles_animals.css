@@ -135,9 +135,6 @@ h1 {
   align-items: center;
   color: var(--color-txt);
   background-color: var(--icons-bg);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   border-radius: var(--border-radius);
   padding: 1.5rem;
   box-shadow: 0 2rem 4rem 0 var(--shadow-bg);
