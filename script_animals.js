@@ -7,6 +7,7 @@ const locationFL = document.querySelector("#FL");
 const locationLA = document.querySelector("#LA");
 const locationTX = document.querySelector("#TX");
 const loader = document.querySelector("#loading");
+const select = document.querySelector("#locations");
 
 //--- Loading animation ---//
 function displayLoading() {
@@ -20,35 +21,29 @@ function hideLoading() {
 	loader.classList.remove("heart");
 }
 
-//--- ---//
-
 goBack.addEventListener("click", () => {
 	location.href = "./index.html";
 });
 
-function onClickHandlerFL() {
-	animalLocation = "FL";
-	location.href = "./index_animals_located.html";
-	sessionStorage.setItem("location", animalLocation);
+//--- catch location from dropdown ---///
+function updateLocation() {
+	let selectValue = select.options[select.selectedIndex].value;
+	if (selectValue === "FL") {
+		animalLocation = "FL";
+		location.href = "./index_animals_located.html";
+		sessionStorage.setItem("location", animalLocation);
+	} else if (selectValue === "LA") {
+		animalLocation = "LA";
+		location.href = "./index_animals_located.html";
+		sessionStorage.setItem("location", animalLocation);
+	} else if (selectValue === "TX") {
+		animalLocation = "TX";
+		location.href = "./index_animals_located.html";
+		sessionStorage.setItem("location", animalLocation);
+	}
 }
 
-locationFL.addEventListener("click", onClickHandlerFL);
-
-function onClickHandlerLA() {
-	animalLocation = "LA";
-	location.href = "./index_animals_located.html";
-	sessionStorage.setItem("location", animalLocation);
-}
-
-locationLA.addEventListener("click", onClickHandlerLA);
-
-function onClickHandlerTX() {
-	animalLocation = "TX";
-	location.href = "./index_animals_located.html";
-	sessionStorage.setItem("location", animalLocation);
-}
-
-locationTX.addEventListener("click", onClickHandlerTX);
+select.addEventListener("change", updateLocation);
 
 function getAnimals(animalType) {
 	//--- Loading animation ---//

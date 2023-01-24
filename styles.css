@@ -47,11 +47,13 @@ h1 {
     background-color: var(--icons-bg);
     box-shadow: 0 2rem 4rem 0 var(--shadow-bg);
     border-radius: var(--border-radius);
+    transition: all ease 0.2s;
 }
 
 #animalType div:hover,
 #animalType div:focus {
     box-shadow: 0 0 0 1.5rem var(--effect-bg);
     cursor: pointer;
+    transform: translateY(-.5rem);
 }
 

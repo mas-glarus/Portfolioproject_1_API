@@ -12,14 +12,18 @@
 
 <body>
     <div class="container">
-        <div id="goBack">Back</div>
-        <h1 id="header2"></h1>
-        <h4>sort by area:</h4>
-        <div id="locations">
-            <div id="FL">Florida</div>
-            <div id="LA">Los Angeles</div>
-            <div id="TX">Texas</div>
+        <div class="head__container">
+            <div id="goBack">Back</div>
+            <div class="location-selection">
+                <select id="locations">
+                    <option value="unknown">All</option>
+                    <option value="FL" id="FL">Florida</option>
+                    <option value="LA" id="LA">Los Angeles</option>
+                    <option value="TX" id="TX">Texas</option>
+                </select>
+            </div>
         </div>
+        <h1 id="header2"></h1>
         <div id="loading"></div>
         <div class="animalList-Container">
             <div id="animalList">

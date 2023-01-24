@@ -21,8 +21,9 @@ function hideLoading() {
 	loader.classList.remove("heart");
 }
 
-//--- ---//
+//--- END of loading animation ---//
 
+//--- navigation ---//
 goHome.addEventListener("click", () => {
 	location.href = "./index.html";
 });
@@ -31,9 +32,12 @@ goBack.addEventListener("click", () => {
 	location.href = "./index_animals.html";
 });
 
+//--- END of navigation ---//
+
 function getAnimals(animalType, location) {
 	//--- Loading animation ---//
 	displayLoading();
+	//--- END of loading animation ---//
 	fetch("https://api.petfinder.com/v2/oauth2/token", {
 		method: "POST",
 		body:
