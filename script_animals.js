@@ -6,6 +6,7 @@ let animalLocation = "";
 const loader = document.querySelector("#loading");
 const select = document.querySelector("#locations");
 const animalList = document.querySelector("#animalList")
+const faviconLink = document.querySelector('#favicon');
 
 //--- Loading animation ---//
 function displayLoading() {
@@ -83,6 +84,14 @@ function getAnimals(animalType) {
 			console.log("pets", data);
 			//remove old list items
 			animalList.innerHTML = "";
+			//Favicon
+			if(animalType === "dog") {
+				faviconLink.href = './images/dog.svg';
+			} else if (animalType === "cat") {
+				faviconLink.href = './images/cat.svg';
+			} else if (animalType === "bird") {
+				faviconLink.href = './images/owl.svg';
+			}
 			//for loop over animals array:
 			if (data.animals.length === 0) {
 				header2.innerHTML = `could not found any ${animalType}s`;
