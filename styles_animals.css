@@ -37,6 +37,7 @@ body {
 
 #goBack,
 #locations {
+  margin-top: 2rem;
     width: 7rem;
     padding: 0 1rem;
     height: 3.5rem;
