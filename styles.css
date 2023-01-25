@@ -67,7 +67,8 @@ h1 {
 
     h1 {
         font-size: 2rem;
-        margin-bottom: 1rem;
+        margin-top: 3rem;
+        margin-bottom: 0;
     }
 
     #animalType {
@@ -77,13 +78,6 @@ h1 {
     }
 
     #animalType div {
-        margin-bottom: 3rem;
-        height: 12rem;
-        width: 12rem;
-    }
-
-    #animalType img {
-        width: 12rem;
-        height: 12rem;
+        margin-top: 3rem;
     }
 }
