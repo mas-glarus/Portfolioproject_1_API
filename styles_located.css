@@ -22,6 +22,7 @@ body {
 
 .container {
   width: 75%;
+  max-width: 1200px;
   margin: 5rem auto;
   padding-bottom: 10rem;
 
@@ -109,50 +110,6 @@ h2 {
     transform: scale(0.6) rotate(-45deg);
   }
 }
-
-  /* --- END of loading animation --- */
-
-  /* --- GRID START ---*/
-
-  /* .animalList-Container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #animalList {
-    display: grid;
-    grid-template-columns: repeat(4, 20rem);
-    grid-gap: 3rem;
-  }
-  
-  #animalList div {
-    color: var(--color-txt);
-    background-color: var(--icons-bg);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    box-shadow: 0px 1rem 2rem var(--shadow-bg);
-    transition: all ease 0.3s;
-  }
-  
-  #animalList div:hover {
-    cursor: pointer;
-    transform: translateY(-.5rem);
-    box-shadow: 0px 1.5 3rem var(--shadow-bg);
-  }
-  
-  #animalList div img {
-    width: 10rem;
-    border-radius: var(--border-radius);
-  }
-
-  .flexColumn {
-    display: flex;
-    flex-direction: column;
-  } */
 
   .animalList-Container {
     display: flex;
