@@ -60,10 +60,13 @@ h1 {
 
 /* Media Queries */
 @media (max-width: 850px) {
+
+    .container {
+        margin-top: 5rem;
+    }
     #animalType {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
     }
 
