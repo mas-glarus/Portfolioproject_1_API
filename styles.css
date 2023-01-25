@@ -64,6 +64,12 @@ h1 {
     .container {
         margin-top: 5rem;
     }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
     #animalType {
         display: flex;
         flex-direction: column;
