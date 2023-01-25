@@ -5,8 +5,8 @@ const animalTypeOf = sessionStorage.getItem("animal");
 let animalLocation = "";
 const loader = document.querySelector("#loading");
 const select = document.querySelector("#locations");
-const animalList = document.querySelector("#animalList")
-const faviconLink = document.querySelector('#favicon');
+const animalList = document.querySelector("#animalList");
+const faviconLink = document.querySelector("#favicon");
 
 //--- Loading animation ---//
 function displayLoading() {
@@ -85,40 +85,39 @@ function getAnimals(animalType) {
 			//remove old list items
 			animalList.innerHTML = "";
 			//Favicon
-			if(animalType === "dog") {
-				faviconLink.href = './images/dog.svg';
+			if (animalType === "dog") {
+				faviconLink.href = "./images/dog.svg";
 			} else if (animalType === "cat") {
-				faviconLink.href = './images/cat.svg';
+				faviconLink.href = "./images/cat.svg";
 			} else if (animalType === "bird") {
-				faviconLink.href = './images/owl.svg';
+				faviconLink.href = "./images/owl.svg";
 			}
 			//for loop over animals array:
 			if (data.animals.length === 0) {
 				header2.innerHTML = `could not found any ${animalType}s`;
-				document.title= `can't find any ${animalType}s`;
+				document.title = `can't find any ${animalType}s`;
 			} else {
 				header2.innerHTML = `could find the following ${animalType}s`;
-				document.title= `beautiful ${animalType}s`;
+				document.title = `beautiful ${animalType}s`;
 
 				//filter duplicates
 				const unique = [];
-				for(const item of data.animals) {
+				for (const item of data.animals) {
 					const isDuplicate = unique.find((obj) => obj.id === item.id);
-					if(!isDuplicate) {
+					if (!isDuplicate) {
 						unique.push(item);
 					}
 				}
 				//END filter duplicates
 
 				for (let i = 0; i < unique.length; i++) {
-
 					if (unique[i].photos.length > 0) {
 						//--- animal image ---//
 						let image = document.createElement("img");
 						let imageUrl = unique[i].photos[0].full;
 						image.src = imageUrl;
-						image.style.width = '10rem';
-						image.style.borderRadius = '0.8rem';
+						image.style.width = "10rem";
+						image.style.borderRadius = "0.8rem";
 						//--- END animal image ---//
 						//--- Card construction --- //
 						let listElement = document.createElement("div");
@@ -127,29 +126,29 @@ function getAnimals(animalType) {
 						let bottomDivLeft = document.createElement("div");
 						let bottomDivRight = document.createElement("div");
 						animalList.appendChild(listElement);
-						animalList.classList.add('grid')
-						listElement.classList.add('listElementDiv')
+						animalList.classList.add("grid");
+						listElement.classList.add("listElementDiv");
 						listElement.appendChild(topDiv);
 						listElement.appendChild(bottomDiv);
 						topDiv.appendChild(image);
-						topDiv.classList.add('topDivStyle');
+						topDiv.classList.add("topDivStyle");
 						bottomDiv.appendChild(bottomDivLeft);
 						bottomDiv.appendChild(bottomDivRight);
-						bottomDiv.classList.add('bottomDivStyle')
+						bottomDiv.classList.add("bottomDivStyle");
 						//--- End card construction --- //
 						//--- Animal name --- //
 						bottomDivLeft.innerHTML = `"${unique[i].name}"`;
-						bottomDivLeft.classList.add('bottomDivLeftStyle')
+						bottomDivLeft.classList.add("bottomDivLeftStyle");
 						//--- END Animal name --- //
 						//---Contact via Email ---//
-						let imageContact = document.createElement('img');
-						imageContact.src = './images/mail.svg';
-						imageContact.style.width = '3rem';
+						let imageContact = document.createElement("img");
+						imageContact.src = "./images/mail.svg";
+						imageContact.style.width = "3rem";
 						let contact = document.createElement("a");
 						contact.href = `mailto:${unique[i].contact.email}`;
-						contact.appendChild(imageContact)
+						contact.appendChild(imageContact);
 						bottomDivRight.appendChild(contact);
-						bottomDivRight.classList.add('bottomDivRightStyle')
+						bottomDivRight.classList.add("bottomDivRightStyle");
 						//---END Contact via Email ---//
 					} else {
 						console.log("no foto found");

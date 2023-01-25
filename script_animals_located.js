@@ -7,7 +7,7 @@ const header1 = document.querySelector("#header1");
 const header2 = document.querySelector("#header2");
 const goHome = document.querySelector("#goHome");
 const loader = document.querySelector("#loading");
-const faviconLink = document.querySelector('#favicon');
+const faviconLink = document.querySelector("#favicon");
 
 //--- Loading animation ---//
 function displayLoading() {
@@ -82,24 +82,24 @@ function getAnimals(animalType, location) {
 			//remove old list items
 			animalList.innerHTML = "";
 			//Favicon
-			if(animalType === "dog") {
-			 	faviconLink.href = './images/dog.svg';
-			 } else if (animalType === "cat") {
-			 	faviconLink.href = './images/cat.svg';
-			 } else if (animalType === "bird") {
-			 	faviconLink.href = './images/owl.svg';
-			 }
+			if (animalType === "dog") {
+				faviconLink.href = "./images/dog.svg";
+			} else if (animalType === "cat") {
+				faviconLink.href = "./images/cat.svg";
+			} else if (animalType === "bird") {
+				faviconLink.href = "./images/owl.svg";
+			}
 
 			//filter duplicates
 			const unique = [];
-			for(const item of data.animals) {
+			for (const item of data.animals) {
 				const isDuplicate = unique.find((obj) => obj.id === item.id);
-				if(!isDuplicate) {
+				if (!isDuplicate) {
 					unique.push(item);
 				}
 			}
 			//END filter duplicates
-			 
+
 			//for loop over animals array:
 			//first if -> error message if no pets could be found
 			if (unique.length === 0) {
