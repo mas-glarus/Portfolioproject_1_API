@@ -99,11 +99,23 @@ function getAnimals(animalType) {
 			} else {
 				header2.innerHTML = `could find the following ${animalType}s`;
 				document.title= `beautiful ${animalType}s`;
-				for (let i = 0; i < data.animals.length; i++) {
-					if (data.animals[i].photos.length > 0) {
+
+				//filter duplicates
+				const unique = [];
+				for(const item of data.animals) {
+					const isDuplicate = unique.find((obj) => obj.id === item.id);
+					if(!isDuplicate) {
+						unique.push(item);
+					}
+				}
+				//END filter duplicates
+
+				for (let i = 0; i < unique.length; i++) {
+
+					if (unique[i].photos.length > 0) {
 						//--- animal image ---//
 						let image = document.createElement("img");
-						let imageUrl = data.animals[i].photos[0].full;
+						let imageUrl = unique[i].photos[0].full;
 						image.src = imageUrl;
 						image.style.width = '10rem';
 						image.style.borderRadius = '0.8rem';
@@ -126,7 +138,7 @@ function getAnimals(animalType) {
 						bottomDiv.classList.add('bottomDivStyle')
 						//--- End card construction --- //
 						//--- Animal name --- //
-						bottomDivLeft.innerHTML = `"${data.animals[i].name}"`;
+						bottomDivLeft.innerHTML = `"${unique[i].name}"`;
 						bottomDivLeft.classList.add('bottomDivLeftStyle')
 						//--- END Animal name --- //
 						//---Contact via Email ---//
@@ -134,7 +146,7 @@ function getAnimals(animalType) {
 						imageContact.src = './images/mail.svg';
 						imageContact.style.width = '3rem';
 						let contact = document.createElement("a");
-						contact.href = `mailto:${data.animals[i].contact.email}`;
+						contact.href = `mailto:${unique[i].contact.email}`;
 						contact.appendChild(imageContact)
 						bottomDivRight.appendChild(contact);
 						bottomDivRight.classList.add('bottomDivRightStyle')

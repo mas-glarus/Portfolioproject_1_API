@@ -89,19 +89,30 @@ function getAnimals(animalType, location) {
 			 } else if (animalType === "bird") {
 			 	faviconLink.href = './images/owl.svg';
 			 }
+
+			//filter duplicates
+			const unique = [];
+			for(const item of data.animals) {
+				const isDuplicate = unique.find((obj) => obj.id === item.id);
+				if(!isDuplicate) {
+					unique.push(item);
+				}
+			}
+			//END filter duplicates
+			 
 			//for loop over animals array:
 			//first if -> error message if no pets could be found
-			if (data.animals.length === 0) {
+			if (unique.length === 0) {
 				header2.innerHTML = `could not found any ${animalType}s in ${location}`;
 				document.title = `can't find any ${animalType}s`;
 			} else {
 				header2.innerHTML = `could find the following ${animalType}s in ${location}`;
 				document.title = `beautiful ${animalType}s in ${location}`;
-				for (let i = 0; i < data.animals.length; i++) {
-					if (data.animals[i].photos.length > 0) {
+				for (let i = 0; i < unique.length; i++) {
+					if (unique[i].photos.length > 0) {
 						//--- animal image ---//
 						let image = document.createElement("img");
-						let imageUrl = data.animals[i].photos[0].full;
+						let imageUrl = unique[i].photos[0].full;
 						image.src = imageUrl;
 						image.style.width = "10rem";
 						image.style.borderRadius = "0.8rem";
@@ -124,7 +135,7 @@ function getAnimals(animalType, location) {
 						bottomDiv.classList.add("bottomDivStyle");
 						//--- End card construction --- //
 						//--- Animal name --- //
-						bottomDivLeft.innerHTML = `"${data.animals[i].name}"`;
+						bottomDivLeft.innerHTML = `"${unique[i].name}"`;
 						bottomDivLeft.classList.add("bottomDivLeftStyle");
 						//--- END Animal name --- //
 						//---Contact via Email ---//
@@ -132,7 +143,7 @@ function getAnimals(animalType, location) {
 						imageContact.src = "./images/mail.svg";
 						imageContact.style.width = "3rem";
 						let contact = document.createElement("a");
-						contact.href = `mailto:${data.animals[i].contact.email}`;
+						contact.href = `mailto:${unique[i].contact.email}`;
 						contact.appendChild(imageContact);
 						bottomDivRight.appendChild(contact);
 						bottomDivRight.classList.add("bottomDivRightStyle");
