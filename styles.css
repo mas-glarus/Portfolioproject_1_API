@@ -26,6 +26,7 @@ body {
 .container {
     width: 75%;
     margin: 0 auto;
+    max-width: 1200px;
 }
 
 h1 {
@@ -57,3 +58,23 @@ h1 {
     transform: translateY(-.5rem);
 }
 
+/* Media Queries */
+@media (max-width: 850px) {
+    #animalType {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #animalType div {
+        margin-bottom: 3rem;
+        height: 12rem;
+        width: 12rem;
+    }
+
+    #animalType img {
+        width: 12rem;
+        height: 12rem;
+    }
+}

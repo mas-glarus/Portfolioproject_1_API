@@ -162,7 +162,7 @@ h2 {
   
   .grid {
     display: grid;
-    grid-template-columns: repeat(4, 20rem);
+    grid-template-columns: repeat(4, 17.5rem);
     grid-gap: 3rem;
   }
   
@@ -205,3 +205,24 @@ h2 {
 
     /* --- GRID END ---*/
   
+    /* Media Queries */
+@media (max-width: 1160px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 17.5rem);
+  }
+}
+
+@media (max-width: 870px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 17.5rem);
+  }
+}
+
+@media (max-width: 580px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(1, 17.5rem);
+  }
+}
