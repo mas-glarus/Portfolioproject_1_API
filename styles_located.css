@@ -162,6 +162,40 @@ h2 {
 
     /* --- GRID END ---*/
   
+    /* --- IMG Zoom --- */
+    .popup-image {
+      display: none;
+      position:fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0,0,0,.9);
+      height: 100%;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .popup-image span {
+      position: absolute;
+      top: 0;
+      right: 1rem;
+      font-size: 4rem;
+      font-weight: bolder;
+      color: var(--icons-bg);
+      cursor: pointer;
+      z-index: 100;
+    }
+
+    .popup-image img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: .5rem solid var(--icons-bg);
+      border-radius: var(--border-radius);
+      width: 30rem;
+      object-fit: cover;
+    }
+
     /* Media Queries */
 @media (max-width: 1160px) {
   .grid {

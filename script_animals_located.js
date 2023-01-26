@@ -116,6 +116,16 @@ function getAnimals(animalType, location) {
 						image.src = imageUrl;
 						image.style.width = "10rem";
 						image.style.borderRadius = "0.8rem";
+						// --- ADD Image ZOOM --- //
+						image.addEventListener('click', () => {
+							document.querySelector('.popup-image').style.display = 'block';
+							document.querySelector('.popup-image img').src = imageUrl;
+						})
+						
+						//---Remove Image ZOOM --- //
+						document.querySelector('.imageSpan').addEventListener('click', () => {
+						document.querySelector('.popup-image').style.display = 'none';
+						})
 						//--- END animal image ---//
 						//--- Card construction --- //
 						let listElement = document.createElement("div");
