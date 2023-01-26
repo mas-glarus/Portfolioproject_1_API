@@ -109,7 +109,7 @@ function getAnimals(animalType, location) {
 				header2.innerHTML = `could find the following ${animalType}s in ${location}`;
 				document.title = `beautiful ${animalType}s in ${location}`;
 				for (let i = 0; i < unique.length; i++) {
-					if (unique[i].photos.length > 0) {
+					if (unique[i].photos.length > 0 && unique[i].name.length < 12) {
 						//--- animal image ---//
 						let image = document.createElement("img");
 						let imageUrl = unique[i].photos[0].full;
@@ -134,10 +134,11 @@ function getAnimals(animalType, location) {
 						bottomDiv.appendChild(bottomDivRight);
 						bottomDiv.classList.add("bottomDivStyle");
 						//--- End card construction --- //
-						//--- Animal name --- //
-						bottomDivLeft.innerHTML = `"${unique[i].name}"`;
+						//--- Animal name & location--- //
+						bottomDivLeft.innerHTML = `"${unique[i].name}"
+						<br> state: ${unique[i].organization_id.substring(0, 2)}`;
 						bottomDivLeft.classList.add("bottomDivLeftStyle");
-						//--- END Animal name --- //
+						//--- END Animal name --- ///
 						//---Contact via Email ---//
 						let imageContact = document.createElement("img");
 						imageContact.src = "./images/mail.svg";
